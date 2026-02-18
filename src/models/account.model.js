@@ -11,10 +11,12 @@ const accountSchema = new mongoose.Schema({
         index: true
     },
     status: {
+        type: String,
         enum: {
             values: ['active', 'inactive', 'suspended'],
-            message: 'Status must be either active, inactive, or suspended'
-        }   
+            message: 'Status must be either active, inactive, or suspended', 
+        },
+        default: 'active'   
     },
     Currency:{
         type: String,

@@ -16,7 +16,7 @@ async function authMiddleware(req, res, next) {
         const user = await userModel.findById(decoded.userId);
 
         req.user = user;
-        next();
+        return next();
 
     }catch(err) {
         return res.status(401).json({
@@ -25,3 +25,7 @@ async function authMiddleware(req, res, next) {
     }
 
 } 
+
+module.exports = {
+    authMiddleware
+}
